@@ -10,24 +10,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo13.app.rents.model.IQuadbikeRepository;
+import com.grupo13.app.rents.model.IReservationRepository;
 import com.grupo13.app.rents.model.Quadbike;
+import com.grupo13.app.rents.model.Reservation;
 
 @RestController
 @RequestMapping("/api/Reservation")
 public class ReservationController {
 
     @Autowired
-    IQuadbikeRepository repository;
+    IReservationRepository repository;
     
     @GetMapping("/all")
-    public Iterable<Quadbike> getQuadbikes(){
-        Iterable<Quadbike> response = repository.findAll();
+    public Iterable<Reservation> getReservations(){
+        Iterable<Reservation> response = repository.findAll();
 
         return response;
     }
 
     @PostMapping("/save")
-    public String createQuadbike(@RequestBody Quadbike request){
+    public String createReservation(@RequestBody Reservation request){
        repository.save(request);
         return "Created ...";
     }

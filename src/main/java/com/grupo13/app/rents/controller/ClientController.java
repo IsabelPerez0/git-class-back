@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.grupo13.app.rents.model.Client;
+import com.grupo13.app.rents.model.IClientRepository;
 import com.grupo13.app.rents.model.IQuadbikeRepository;
 import com.grupo13.app.rents.model.Quadbike;
 
@@ -17,17 +19,17 @@ import com.grupo13.app.rents.model.Quadbike;
 public class ClientController {
 
     @Autowired
-    IQuadbikeRepository repository;
+    IClientRepository repository;
     
     @GetMapping("/all")
-    public Iterable<Quadbike> getQuadbikes(){
-        Iterable<Quadbike> response = repository.findAll();
+    public Iterable<Client> getClients(){
+        Iterable<Client> response = repository.findAll();
 
         return response;
     }
 
     @PostMapping("/save")
-    public String createQuadbike(@RequestBody Quadbike request){
+    public String createClient(@RequestBody Client request){
        repository.save(request);
         return "Created ...";
     }
