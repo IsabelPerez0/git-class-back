@@ -19,7 +19,6 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Message implements Serializable {
     
     @Id
