@@ -15,12 +15,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="tb_quadbike")
+@Table(name="tb_category")
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Quadbike implements Serializable {
+public class Category implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,13 +31,9 @@ public class Quadbike implements Serializable {
     @Column
     private String name;
     @Column
-    private String brand;
-    @Column
-    private Integer year;
-    @Column
     private String description;
     @Column
-    private Integer category;
+    private Quadbike quadbikes;
   
 
 
