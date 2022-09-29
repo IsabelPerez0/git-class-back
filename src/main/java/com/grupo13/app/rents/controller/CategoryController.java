@@ -9,30 +9,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.grupo13.app.rents.model.Category;
+import com.grupo13.app.rents.model.ICategoryRepository;
 
-import com.grupo13.app.rents.model.IQuadbikeRepository;
-import com.grupo13.app.rents.model.Quadbike;
 
 @RestController
-@RequestMapping("/api/Client")
-public class ClientController {
+@RequestMapping("/api/Category")
+public class CategoryController {
     
     @Autowired
-    IQuadbikeRepository repository;
+    ICategoryRepository repository;
     
     @GetMapping("/all")
-    public Iterable<Quadbike> getQuadbikes(){
-        Iterable<Quadbike> response = repository.findAll();
+    public Iterable<Category> get(){
+        Iterable<Category> response = repository.findAll();
         
         return response;
     }
     
     @PostMapping("/save")
-    public String createQuadbike(@RequestBody Quadbike request){
+    public String create(@RequestBody Category request){
         
         repository.save(request);
         
-        return "crated....";
+        return "created....";
     }
 
+
+    
+    
 }

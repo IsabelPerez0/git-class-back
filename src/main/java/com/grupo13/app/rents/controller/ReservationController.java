@@ -22,15 +22,17 @@ public class ReservationController {
     IReservationRepository repository;
     
     @GetMapping("/all")
-    public Iterable<Reservation> getReservations(){
+    public Iterable<Reservation> get(){
         Iterable<Reservation> response = repository.findAll();
-
+        
         return response;
     }
-
+    
     @PostMapping("/save")
-    public String createReservation(@RequestBody Reservation request){
-       repository.save(request);
-        return "Created ...";
+    public String create(@RequestBody Reservation request){
+        
+        repository.save(request);
+        
+        return "crated....";
     }
 }

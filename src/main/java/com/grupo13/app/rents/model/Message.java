@@ -24,9 +24,7 @@ public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    public Integer idMessage; //Colocar el mismo nombre que esta en la base de datos
-    //en dado caso, si es diferente se colocaria
-    //[@Column(name="quad_id")]
+    public Integer idMessage; 
     @Column
     private String messageText;
     @Column

@@ -26,9 +26,7 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    public Integer idClient; //Colocar el mismo nombre que esta en la base de datos
-    //en dado caso, si es diferente se colocaria
-    //[@Column(name="quad_id")]
+    public Integer idClient; 
     @Column
     private String name;
     @Column
