@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.grupo13.app.rents.model.IQuadbikeRepository;
 import com.grupo13.app.rents.model.IReservationRepository;
-import com.grupo13.app.rents.model.Quadbike;
 import com.grupo13.app.rents.model.Reservation;
 
 @RestController

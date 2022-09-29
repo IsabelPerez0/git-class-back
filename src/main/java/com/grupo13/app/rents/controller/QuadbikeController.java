@@ -1,6 +1,8 @@
 package com.grupo13.app.rents.controller;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Locale.Category;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.grupo13.app.rents.model.ICategoryRepository;
 import com.grupo13.app.rents.model.IQuadbikeRepository;
 import com.grupo13.app.rents.model.Quadbike;
 
@@ -18,9 +21,12 @@ public class QuadbikeController {
 
     @Autowired
     IQuadbikeRepository repository;
+    @Autowired
+    ICategoryRepository categoryRepository;
     
     @GetMapping("/all")
     public Iterable<Quadbike> getQuadbikes(){
+
         Iterable<Quadbike> response = repository.findAll();
 
         return response;
@@ -28,7 +34,14 @@ public class QuadbikeController {
 
     @PostMapping("/save")
     public String createQuadbike(@RequestBody Quadbike request){
-       repository.save(request);
-        return "Created ...";
+    
+        Optional<com.grupo13.app.rents.model.Category> cat = categoryRepository.findById(request.getCategory().getId());
+        if(!cat.isEmpty()){
+            request.setCategory(cat.get());
+        }
+    
+        repository.save(request);
+      
+       return "Created ...";
     }
 }
