@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CostumeController {
     
     @GetMapping("/all")
-    public String getCostume(){
+    public String getCostumes(){
         return "costume 1, costume 2";
     }
 
