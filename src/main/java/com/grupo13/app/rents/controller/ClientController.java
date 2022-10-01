@@ -9,31 +9,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.grupo13.app.rents.model.Client;
-import com.grupo13.app.rents.model.IClientRepository;
-import com.grupo13.app.rents.model.IQuadbikeRepository;
-import com.grupo13.app.rents.model.Quadbike;
+import com.grupo13.app.rents.entities.Client;
+import com.grupo13.app.rents.service.ClientService;
+
 
 @RestController
 @RequestMapping("/api/Client")
 public class ClientController {
     
     @Autowired
-    IClientRepository repository;
+    ClientService service;
     
     @GetMapping("/all")
-    public Iterable<Client> getClients(){
-        Iterable<Client> response = repository.findAll();
+    public Iterable<Client> get(){
+        Iterable<Client> response = service.get();
         
         return response;
     }
     
     @PostMapping("/save")
-    public String createClient(@RequestBody Client request){
+    public String create(@RequestBody Client request){
         
-        repository.save(request);
+      //  repository.save(request);
         
-        return "crated....";
+        return service.create(request);
     }
 
 }

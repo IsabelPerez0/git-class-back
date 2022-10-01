@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.grupo13.app.rents.model.IMessageRepository;
-import com.grupo13.app.rents.model.IQuadbikeRepository;
-import com.grupo13.app.rents.model.Message;
-import com.grupo13.app.rents.model.Quadbike;
+import com.grupo13.app.rents.entities.Message;
+import com.grupo13.app.rents.entities.Quadbike;
+import com.grupo13.app.rents.interfaces.IMessageRepository;
+import com.grupo13.app.rents.interfaces.IQuadbikeRepository;
 
 @RestController
 @RequestMapping("/api/Message")

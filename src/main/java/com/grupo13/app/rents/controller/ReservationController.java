@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.grupo13.app.rents.model.IReservationRepository;
-import com.grupo13.app.rents.model.Reservation;
+import com.grupo13.app.rents.entities.Reservation;
+import com.grupo13.app.rents.interfaces.IReservationRepository;
 
 @RestController
 @RequestMapping("/api/Reservation")

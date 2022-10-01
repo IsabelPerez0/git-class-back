@@ -1,6 +1,7 @@
-package com.grupo13.app.rents.model;
+package com.grupo13.app.rents.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,22 +16,30 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="tb_message")
+@Table(name="tb_reservation")
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Message implements Serializable {
+public class Reservation implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    public Integer idMessage; 
+    public Integer idReservation;
     @Column
-    private String messageText;
+    private Date startDate;
+    @Column
+    private Date devolutionDate;
+    @Column
+    private String status;
     @Column
     private Quadbike quadbike;
     @Column
     private Client client;
+    @Column
+    private String score;
+
+
 
 
     

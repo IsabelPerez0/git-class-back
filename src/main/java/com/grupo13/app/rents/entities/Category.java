@@ -1,4 +1,4 @@
-package com.grupo13.app.rents.model;
+package com.grupo13.app.rents.entities;
 
 import java.io.Serializable;
 import java.util.List;

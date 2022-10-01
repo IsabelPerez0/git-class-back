@@ -1,15 +1,18 @@
-package com.grupo13.app.rents.model;
+package com.grupo13.app.rents.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,15 +35,21 @@ public class Client implements Serializable {
     @Column
     private String email;
     @Column
-    private Integer password;
+    private String password;
     @Column
     private Integer age;
+    //pendiente
+   // @OneToMany(cascade={CascadeType.PERSIST}, mappedBy = "message") //unca tegoria puede tener muchas cuatrimotos
+   // @JsonIgnoreProperties("message")
+   // private List<Quadbike> quadbikes;
     @Column
     private Message messages;
     @Column
     private Reservation reservations;
   
 
+//Pendiente
+    //Client, Message
 
     
 

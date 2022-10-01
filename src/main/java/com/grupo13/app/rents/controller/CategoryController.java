@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.grupo13.app.rents.model.Category;
-import com.grupo13.app.rents.model.ICategoryRepository;
+import com.grupo13.app.rents.entities.Category;
+import com.grupo13.app.rents.interfaces.ICategoryRepository;
 
 
 @RestController
