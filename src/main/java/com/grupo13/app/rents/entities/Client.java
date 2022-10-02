@@ -31,21 +31,24 @@ public class Client implements Serializable {
     @Column(name="id")
     public Integer idClient; 
     @Column
-    private String name;
-    @Column
     private String email;
     @Column
     private String password;
+    @Column
+    private String name;
     @Column
     private Integer age;
     //pendiente
    // @OneToMany(cascade={CascadeType.PERSIST}, mappedBy = "message") //unca tegoria puede tener muchas cuatrimotos
    // @JsonIgnoreProperties("message")
    // private List<Quadbike> quadbikes;
-    @Column
-    private Message messages;
-    @Column
-    private Reservation reservations;
+    @OneToMany(cascade={CascadeType.PERSIST},mappedBy="client")
+    @JsonIgnoreProperties({"client"})
+    private List<Message> messages;
+
+    @OneToMany(cascade={CascadeType.PERSIST},mappedBy="client")
+    @JsonIgnoreProperties("client")
+    private List<Reservation> reservations;
   
 
 //Pendiente

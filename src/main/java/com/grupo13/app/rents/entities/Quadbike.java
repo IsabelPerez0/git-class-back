@@ -1,6 +1,7 @@
 package com.grupo13.app.rents.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,13 +41,22 @@ public class Quadbike implements Serializable {
     @Column
     private String description;
     
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne
     @JsonIgnoreProperties("quadbikes")
     @JoinColumn(name="category_id")
     private Category category;
-  
-
+    /*@ManyToOne(cascade=CascadeType.ALL)
+    @JsonIgnoreProperties("quadbikes")
+    @JoinColumn(name="category_id")
+    private Category category;*/
+    @OneToMany(cascade={CascadeType.PERSIST},mappedBy="quadbike")
+   // @OneToMany(cascade={CascadeType.PERSIST})
+    @JsonIgnoreProperties({"quadbike","client"})
+    private List<Message> messages;  
 
     
+    @OneToMany(cascade={CascadeType.PERSIST},mappedBy="quadbike")
+    @JsonIgnoreProperties({"quadbike","messages"})
+    private List<Reservation> reservations;
 
 }

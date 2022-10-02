@@ -1,27 +1,23 @@
 package com.grupo13.app.rents.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.grupo13.app.rents.entities.Reservation;
-import com.grupo13.app.rents.service.ReservationService;
+import com.grupo13.app.rents.entities.Score;
+import com.grupo13.app.rents.service.ScoreService;
 
 @RestController
-@RequestMapping("/api/Reservation")
-public class ReservationController {
-
+@RequestMapping("/api/Score")
+public class ScoreController {
     
     @Autowired
-    ReservationService service;
+    ScoreService service;
 
     @GetMapping("/all")
-    public Iterable<Reservation> getReservations(){
+    public Iterable<Score> getScores(){
 
         /*Iterable<Quadbike> response = repository.findAll();
 
@@ -29,8 +25,14 @@ public class ReservationController {
         return service.get();
     }
 
+    /*@GetMapping("/{id}")
+    public Optional<Score> get(@PathVariable("id") Integer id){
+
+        return service.get(id);
+    }*/
+
     @PostMapping("/save")
-    public String create(@RequestBody Reservation request){
+    public String create(@RequestBody Score request){
     /* 
         Optional<com.grupo13.app.rents.model.Category> cat = categoryRepository.findById(request.getCategory().getId());
         if(!cat.isEmpty()){
@@ -42,21 +44,16 @@ public class ReservationController {
        return service.create(request);
     }
 
-   /* @Autowired
-    IReservationRepository repository;
     
-    @GetMapping("/all")
-    public Iterable<Reservation> get(){
-        Iterable<Reservation> response = repository.findAll();
-        
-        return response;
+    /*@PutMapping("/update")
+    public Quadbike update(@RequestBody Quadbike request){
+ 
+       return service.update(request);
     }
-    
-    @PostMapping("/save")
-    public String create(@RequestBody Reservation request){
-        
-        repository.save(request);
-        
-        return "crated....";
+
+    @DeleteMapping("/{id}")
+    public Boolean delete(@PathVariable("id") Integer id){
+ 
+       return service.delete(id);
     }*/
 }

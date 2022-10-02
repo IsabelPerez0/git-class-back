@@ -2,7 +2,6 @@ package com.grupo13.app.rents.entities;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,15 +31,32 @@ public class Message implements Serializable {
     public Integer idMessage; 
     @Column
     private String messageText;
-    @Column
-    private Quadbike quadbike;
+
+    //@ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JsonIgnoreProperties({"messages","reservations"})
+    @JoinColumn(name="quadbike_id")
+    private Quadbike quadbike; 
+
+    //@ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JsonIgnoreProperties({"messages","reservations"})
+    @JoinColumn(name="client_id")
+    private Client client; 
+
+  
+
+    /*@OneToMany(cascade={CascadeType.PERSIST}, mappedBy = "message") //un mensaje puede tener muchas cuatrimotos
+    @JsonIgnoreProperties("message")
+    private List<Quadbike> quadbikes;*/
+   // @Column
+    //private Quadbike quadbike;
     /*@ManyToOne(cascade=CascadeType.ALL)
     @JsonIgnoreProperties("messages")
     @JoinColumn(name="client_id")*/
-    @Column
-    private Client client;
+ 
 
 
-    
+  
 
 }
