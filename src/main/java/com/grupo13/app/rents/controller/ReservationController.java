@@ -1,6 +1,5 @@
 package com.grupo13.app.rents.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,13 +30,6 @@ public class ReservationController {
 
     @PostMapping("/save")
     public String create(@RequestBody Reservation request){
-    /* 
-        Optional<com.grupo13.app.rents.model.Category> cat = categoryRepository.findById(request.getCategory().getId());
-        if(!cat.isEmpty()){
-            request.setCategory(cat.get());
-        }
-    
-        repository.save(request);*/
       
        return service.create(request);
     }

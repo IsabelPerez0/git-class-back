@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.OptBoolean;
+
 import com.grupo13.app.rents.entities.Quadbike;
 import com.grupo13.app.rents.service.QuadbikeService;
 

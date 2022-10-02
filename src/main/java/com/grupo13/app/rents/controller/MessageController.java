@@ -21,22 +21,11 @@ public class MessageController {
     @GetMapping("/all")
     public Iterable<Message> getMesssages(){
 
-        /*Iterable<Quadbike> response = repository.findAll();
-
-        return response;*/
         return service.get();
     }
 
     @PostMapping("/save")
     public String create(@RequestBody Message request){
-    /* 
-        Optional<com.grupo13.app.rents.model.Category> cat = categoryRepository.findById(request.getCategory().getId());
-        if(!cat.isEmpty()){
-            request.setCategory(cat.get());
-        }
-    
-        repository.save(request);*/
-      
        return service.create(request);
     }
 

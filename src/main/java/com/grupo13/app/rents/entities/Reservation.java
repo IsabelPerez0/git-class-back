@@ -53,17 +53,6 @@ public class Reservation implements Serializable {
     @OneToOne(cascade= {CascadeType.REMOVE},mappedBy="reservation")
     @JsonIgnoreProperties("reservation")
     private Score score;
-
-
-   /* / @Column
-    private Quadbike quadbike;
-    @Column
-    private Client client;*/
-
-    //Tiene relación con el producto, cliente, puntuacion
-
-
-
     
 
 }

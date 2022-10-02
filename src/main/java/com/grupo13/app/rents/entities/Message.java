@@ -43,20 +43,4 @@ public class Message implements Serializable {
     @JsonIgnoreProperties({"messages","reservations"})
     @JoinColumn(name="client_id")
     private Client client; 
-
-  
-
-    /*@OneToMany(cascade={CascadeType.PERSIST}, mappedBy = "message") //un mensaje puede tener muchas cuatrimotos
-    @JsonIgnoreProperties("message")
-    private List<Quadbike> quadbikes;*/
-   // @Column
-    //private Quadbike quadbike;
-    /*@ManyToOne(cascade=CascadeType.ALL)
-    @JsonIgnoreProperties("messages")
-    @JoinColumn(name="client_id")*/
- 
-
-
-  
-
 }
