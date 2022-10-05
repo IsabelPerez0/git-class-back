@@ -24,18 +24,14 @@ public class CategoryService {
         return response;
     }
 
-    public String create(Quadbike request){
+    public Quadbike create(Quadbike request){
         Optional<Category> cat = categoryRepository.findById(request.getCategory().getId());
         if(!cat.isEmpty()){
             request.setCategory(cat.get());
         }
-        if(request.getName()!=null){
-            repository.save(request);
-            return "Created ...";
-            
-        }else{
-            return "Falta el nombre";
-        }
+        
+            return repository.save(request);
+         
        /*repository.save(request);
       
        return "Created ...";*/

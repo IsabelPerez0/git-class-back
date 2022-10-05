@@ -22,17 +22,18 @@ public class ClientService {
         return response;
     }
 
-    public String create(Client request){
+    public Client create(Client request){
        /*  Optional<Client> cat = categoryRepository.findById(request.getCategory().getId());
         if(!cat.isEmpty()){
             request.setCategory(cat.get());
         }*/
-        if(request.getName()!=null){
+        /*if(request.getName()!=null){
             repository.save(request);
             return "Created ...";
         }else{
             return "Falta el nombre";
-        }
+        }*/
+        return repository.save(request);
         
     }
 

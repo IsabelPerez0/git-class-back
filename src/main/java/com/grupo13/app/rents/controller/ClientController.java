@@ -27,7 +27,7 @@ public class ClientController {
     }
     
     @PostMapping("/save")
-    public String create(@RequestBody Client request){
+    public Client create(@RequestBody Client request){
         
       //  repository.save(request);
         

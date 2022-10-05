@@ -27,11 +27,9 @@ public class CategoryController {
     }
     
     @PostMapping("/save")
-    public String create(@RequestBody Category request){
+    public Category create(@RequestBody Category request){
         
-        repository.save(request);
-        
-        return "created....";
+        return repository.save(request);
     }
 
 
