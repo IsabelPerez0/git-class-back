@@ -34,13 +34,13 @@ public class Message implements Serializable {
 
     //@ManyToOne(cascade = CascadeType.ALL)
     @ManyToOne
-    @JsonIgnoreProperties({"messages","reservations"})
     @JoinColumn(name="quadbike_id")
+    @JsonIgnoreProperties({"messages","reservations"})
     private Quadbike quadbike; 
 
     //@ManyToOne(cascade = CascadeType.ALL)
     @ManyToOne
-    @JsonIgnoreProperties({"messages","reservations"})
     @JoinColumn(name="client_id")
+    @JsonIgnoreProperties({"messages","reservations"})
     private Client client; 
 }

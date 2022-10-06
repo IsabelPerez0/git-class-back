@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
 
 import com.grupo13.app.rents.entities.Client;
 import com.grupo13.app.rents.service.ClientService;
@@ -27,11 +29,9 @@ public class ClientController {
     }
     
     @PostMapping("/save")
-    public Client create(@RequestBody Client request){
-        
-      //  repository.save(request);
-        
-        return service.create(request);
+    @ResponseStatus(HttpStatus.CREATED)
+    public void create(@RequestBody Client request){
+        service.create(request);
     }
 
 }

@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
 
 import com.grupo13.app.rents.entities.Message;
 import com.grupo13.app.rents.service.MessageService;
@@ -25,8 +27,9 @@ public class MessageController {
     }
 
     @PostMapping("/save")
-    public String create(@RequestBody Message request){
-       return service.create(request);
+    @ResponseStatus(HttpStatus.CREATED)
+    public void create(@RequestBody Message request){
+        service.create(request);
     }
 
     

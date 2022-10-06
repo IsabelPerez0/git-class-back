@@ -18,9 +18,7 @@ public class CategoryService {
     ICategoryRepository categoryRepository;
     
     public Iterable<Quadbike> get(){
-
         Iterable<Quadbike> response = repository.findAll();
-
         return response;
     }
 
