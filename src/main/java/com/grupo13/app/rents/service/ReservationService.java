@@ -50,4 +50,19 @@ public class ReservationService {
         
     }
 
+    public Reservation update(Reservation reservation){
+        Reservation reservationToUpdate = new Reservation();
+        if(repository.existsById(reservation.getIdReservation())){ // si existe
+            reservationToUpdate = reservation;
+            repository.save(reservationToUpdate);
+        }
+        return reservationToUpdate;
+    }
+
+    public Boolean delete(Integer id){
+        repository.deleteById(id);
+        Boolean delete = true;
+        return delete;
+    }
+
 }
