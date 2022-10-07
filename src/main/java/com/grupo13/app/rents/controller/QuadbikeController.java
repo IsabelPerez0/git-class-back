@@ -77,7 +77,7 @@ public class QuadbikeController {
 
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("id") Integer id){
  
        service.delete(id);
