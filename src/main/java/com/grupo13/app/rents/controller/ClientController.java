@@ -38,14 +38,15 @@ public class ClientController {
     }
 
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public void update(@RequestBody Client request){
  
        service.update(request);
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    //@ResponseStatus(HttpStatus.ACCEPTED)
     public void delete(@PathVariable("id") Integer id){
  
        service.delete(id);

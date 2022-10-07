@@ -36,7 +36,7 @@ public class MessageController {
     }
 
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.CREATED)
     public void update(@RequestBody Message request){
  
        service.update(request);
