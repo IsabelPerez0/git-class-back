@@ -50,13 +50,36 @@ public class MessageService {
     }
 
     public Message update(Message message){
+        if(message.getIdMessage()!=null){
+            Optional<Message> e= repository.findById(message.getIdMessage());
+            if(!e.isEmpty()){
+                if(message.getMessageText()!=null){
+                    e.get().setMessageText(message.getMessageText());
+                }
+                if(message.getQuadbike()!=null){
+                    e.get().setQuadbike(message.getQuadbike());
+                }
+                if(message.getClient()!=null){
+                    e.get().setClient(message.getClient());
+                }
+                repository.save(e.get());
+                return e.get();
+            }else{
+                return message;
+            }
+        }else{
+            return message;
+        }
+    }
+
+  /*  public Message update(Message message){
         Message messageToUpdate = new Message();
         if(repository.existsById(message.getIdMessage())){ // si existe
             messageToUpdate = message;
             repository.save(messageToUpdate);
         }
         return messageToUpdate;
-    }
+    }*/
 
     public Boolean delete(Integer id){
         repository.deleteById(id);

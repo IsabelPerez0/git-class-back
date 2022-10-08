@@ -1,6 +1,8 @@
 package com.grupo13.app.rents.service;
 
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,13 +45,35 @@ public class CategoryService {
         
     }
 
-    public Category update(Category category){
+
+   /*  public Category update(Category category){
         Category categoryToUpdate = new Category();
         if(repository.existsById(category.getId())){ // si existe
             categoryToUpdate = category;
             repository.save(categoryToUpdate);
         }
         return categoryToUpdate;
+    }*/
+
+    //pegar category y probar que pasa cuando no se envia un cmapo
+    public Category update(Category category){
+        if(category.getId()!=null){
+            Optional<Category> e= repository.findById(category.getId());
+            if(!e.isEmpty()){
+                if(category.getName()!=null){
+                    e.get().setName(category.getName());
+                }
+                if(category.getDescription()!=null){
+                    e.get().setDescription(category.getDescription());
+                }
+                repository.save(e.get());
+                return e.get();
+            }else{
+                return category;
+            }
+        }else{
+            return category;
+        }
     }
 
     public Boolean delete(Integer id){
