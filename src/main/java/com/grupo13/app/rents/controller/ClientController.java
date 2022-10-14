@@ -2,6 +2,7 @@ package com.grupo13.app.rents.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.grupo13.app.rents.service.ClientService;
 
 @RestController
 @RequestMapping("/api/Client")
+@CrossOrigin(origins = "*")
 public class ClientController {
     
     @Autowired
@@ -46,7 +48,6 @@ public class ClientController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    //@ResponseStatus(HttpStatus.ACCEPTED)
     public void delete(@PathVariable("id") Integer id){
  
        service.delete(id);

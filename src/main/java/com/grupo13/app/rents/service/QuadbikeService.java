@@ -30,7 +30,7 @@ public class QuadbikeService {
         return response;
     }
 
-    public String create(Quadbike request){
+    /*public String create(Quadbike request){
         Optional<Category> cat = categoryRepository.findById(request.getCategory().getId());
         if(!cat.isEmpty()){
             request.setCategory(cat.get());
@@ -43,7 +43,12 @@ public class QuadbikeService {
             return "Falta el nombre";
         }
         
+    }*/
+
+    public Quadbike create(Quadbike request) {        
+        return repository.save(request);
     }
+
 
     public Quadbike update(Quadbike quadbike){
         if(quadbike.getId()!=null){
@@ -96,7 +101,7 @@ public class QuadbikeService {
 
     public List<Object[]> getReport(){
         
-       //  List<Quadbike> response = new ArrayList<>();
+         //List<Quadbike> response = new ArrayList<>();
         //logica de coomo procesar la petición al repositorio
         List<Object[]> result = repository.getReport();
         

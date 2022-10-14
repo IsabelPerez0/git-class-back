@@ -1,7 +1,10 @@
 package com.grupo13.app.rents.controller;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,11 +16,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
+import com.grupo13.app.rents.dto.ReportClientDto;
+import com.grupo13.app.rents.dto.ReportStatusDto;
 import com.grupo13.app.rents.entities.Reservation;
 import com.grupo13.app.rents.service.ReservationService;
 
+
 @RestController
 @RequestMapping("/api/Reservation")
+@CrossOrigin(origins = "*")
 public class ReservationController {
 
     
@@ -31,6 +38,21 @@ public class ReservationController {
 
         return response;*/
         return service.get();
+    }
+
+    @GetMapping("/report-clients")
+    public List<ReportClientDto> getReport() {
+        return service.getClientReport();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservationsReportDates(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo) {
+        return service.getReportDates(dateOne, dateTwo);
+    }
+
+    @GetMapping("/report-status")
+    public ReportStatusDto getReservationsStatusReport() {
+        return service.getReservationsStatusReport();
     }
 
     @PostMapping("/save")
