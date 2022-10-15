@@ -49,7 +49,7 @@ public class ReservationController {
     public List<Reservation> getReservationsReportDates(@PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo) {
         return service.getReportDates(dateOne, dateTwo);
     }
-
+    @CrossOrigin(origins = "*")
     @GetMapping("/report-status")
     public ReportStatusDto getReservationsStatusReport() {
         return service.getReservationsStatusReport();
